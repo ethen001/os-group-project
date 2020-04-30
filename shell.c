@@ -32,8 +32,6 @@ void change_dir(const char* command) {
   }
 }
 
-
-
 int main() {
   printf("Type \"quit\" to close & exit the shell\n");
   while (TRUE) {
