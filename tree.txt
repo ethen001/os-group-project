@@ -1,0 +1,11 @@
+total 68
+-rwxr-xr-x 1 chariot chariot 8656 May  5 18:54 a.out
+drwxr-xr-x 2 chariot chariot 4096 Apr 30 12:12 Dir0
+-rwxr-xr-x 1 chariot chariot 8472 May  5 13:29 list
+-rw-r--r-- 1 chariot chariot 1059 May  5 18:54 list.c
+-rw-r--r-- 1 chariot chariot   19 Apr 30 12:12 README.md
+-rwxr-xr-x 1 chariot chariot 9204 Apr 30 12:12 shell
+-rw-r--r-- 1 chariot chariot 1804 Apr 30 12:12 shell.c
+-rw-r--r-- 1 chariot chariot    0 May  5 18:54 t1.txt
+-rwxr-xr-x 1 chariot chariot 8828 Apr 30 12:12 tree
+-rw-r--r-- 1 chariot chariot 1062 Apr 30 12:12 tree.c

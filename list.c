@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 		else if (pid_2 > 0)
 		{ //parent process
 			waitpid(pid_2, &status, 0);
+			system("ls -l >> t1.txt");
 			int rn;
 			rn = rename("t1.txt", "tree.txt");
 			if (rn == 0)
