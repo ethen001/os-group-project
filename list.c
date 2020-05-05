@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 		else if (pid_2 > 0)
 		{ //parent process
 			waitpid(pid_2, &status, 0);
+			system("ls -l >> t1.txt");
 			int rn;
 			rn = rename("t1.txt", "tree.txt");
 			if (rn == 0)
@@ -46,8 +47,6 @@ int main(int argc, char **argv)
 				printf("Error: unable to rename the file.\n");
 			}
 			printf("\nAfter update \n");
-
-			system("ls -l >> tree.txt");
 
 			execlp("ls", "ls", "-l", NULL);
 		}
