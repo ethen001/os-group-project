@@ -13,7 +13,7 @@ int main(void)
   pid_1 = fork();
   if (pid_1 == 0)
   { //child1 process
-    printf("child process1: %d\n", getpid());
+    // printf("child process1: %d\n", getpid());
     char *argv_dir[] = {"mkdir", "Dir0", NULL};
     execvp("mkdir", argv_dir);
     printf("EXECP Failed\n");
@@ -24,7 +24,7 @@ int main(void)
     pid_2 = fork();
     if (pid_2 == 0)
     { // child2 process
-      printf("child process2: %d\n", getpid());
+      // printf("child process2: %d\n", getpid());
       chdir("Dir0");
       system("touch t1.txt"); // this here doesn't use execvp because i only want to use single process for creating 3 files
       system("touch t2.txt");
@@ -34,7 +34,9 @@ int main(void)
     else if (pid_2 > 0)
     { //parent process
       waitpid(pid_2, &status, 0);
-      printf("parent process2: %d\n", getpid());
+      // printf("parent process2: %d\n", getpid());
+      printf("folder&files created");
+
     }
     else
     {
