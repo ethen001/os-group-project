@@ -5,6 +5,8 @@
 #include <time.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv)
 {
@@ -14,7 +16,7 @@ int main(int argc, char **argv)
 
 	if (pid_1 == 0)
 	{ //children process
-		system("clear");
+		printf("\e[1;1H\e[2J");
 	}
 	else if (pid_1 > 0)
 	{ //parent process
