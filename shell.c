@@ -69,18 +69,12 @@ int main()
     // check if needs to quit
     if (strstr(argv[0], "exit"))
     {
-      // fork child process
-      pid = fork();
-
-      if (pid == 0) {
-        err_code = execve("./exit", history, newenviron);
-        if (err_code == -1)
-        {
-          perror("execve: ");
-          exit(EXIT_FAILURE);
-        }
+      err_code = execve("./exit", history, newenviron);
+      if (err_code == -1)
+      {
+        perror("execve: ");
+        exit(EXIT_FAILURE);
       }
-
     } else if (strstr(argv[0], "cd"))
     // check if command is change directory
     {
