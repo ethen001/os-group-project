@@ -39,12 +39,14 @@ void change_dir(const char *command)
 
 int main()
 {
-  printf("Type \"quit\" to close & exit the shell\n");
+  printf("Type \"exit\" to close & exit the shell\n");
+  char* history[100];
+  int command_count = 0;
   while (TRUE)
   {
     char input[100]; // input string from the console
     char *argv[100]; // array of command and arguments
-    char path[1000];
+    char path[1000]; // directory path
     char *newenviron[] = {NULL};
     pid_t pid; // pid of child process
     int err_code;
@@ -61,14 +63,26 @@ int main()
     input[strcspn(input, "\n")] = 0;
     // get command and arguments
     to_commands(input, argv);
+    // store command in history
+    history[command_count] = strdup(argv[0]);
+    ++command_count;
     // check if needs to quit
-    if (strstr(argv[0], "quit"))
+    if (strstr(argv[0], "exit"))
     {
-      exit(1);
-    }
+      // fork child process
+      pid = fork();
 
+      if (pid == 0) {
+        err_code = execve("./exit", history, newenviron);
+        if (err_code == -1)
+        {
+          perror("execve: ");
+          exit(EXIT_FAILURE);
+        }
+      }
+
+    } else if (strstr(argv[0], "cd"))
     // check if command is change directory
-    if (strstr(argv[0], "cd"))
     {
       change_dir(argv[1]);
     }
